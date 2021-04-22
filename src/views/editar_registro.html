@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+    <form action="{{url_for('editar_link', id_registro=id_registro)}}" method="POST">
+        <div class="mb-3">
+            <label class="form-label" for="link">link:</label>
+            <input class="form-control" type="text" id="link" name="link" value="{{link}}">
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Guargar</button>
+        <a href="{{ url_for('links_usarios') }}">Atras</a>
+    </form>
+
+    <!-- mostramos un error si es que sucede -->
+    {% if error %}
+        <p>{{error}}</p>
+    {% endif %}
+{% endblock %}

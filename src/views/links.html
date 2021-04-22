@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+    <a href="{{ url_for('index') }}">Atras</a>
+
+    <table class="table table-striped">
+        <tr>
+            <th>Link acortado</th>
+            <th>Link original</th>
+            <th>--</th>
+        </tr>
+
+        {% for link in links %}
+            <tr>
+                <td>http://localhost:5000/{{link[1]}}</td>
+                <td>{{link[2]}}</td>
+                <td>
+                    <a href="{{ url_for('editar_link', id_registro=link[0]) }}">Editar</a>
+                    <a href="{{ url_for('eliminar_link', id_registro=link[0]) }}">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
